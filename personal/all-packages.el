@@ -3,6 +3,7 @@
 (defvar personal-packages
   '(textmate
     auto-complete
+    ecb
     emms
     ess
     org
