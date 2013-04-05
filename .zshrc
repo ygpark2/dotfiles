@@ -37,3 +37,23 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+
+source ~/dotfiles/zsh/aliases
+source ~/dotfiles/zsh/options
+source ~/dotfiles/zsh/keybindings
+source ~/dotfiles/zsh/functions
+
+# Setup virtualenv wrapper
+export WORKON_HOME=$HOME/.virtualenvs
+# source ~/bin/virtualenvwrapper_bashrc
+# source /opt/local/bin/virtualenvwrapper_bashrc-2.6
+
+# Load OS specific settings
+[[ $OSTYPE == darwin*  && -f ~/dotfiles/zsh/darwin/zshrc ]]  && source ~/dotfiles/zsh/darwin/zshrc
+[[ $OSTYPE == linux*   && -f ~/dotfiles/zsh/linux/zshrc ]]   && source ~/dotfiles/zsh/linux/zshrc
+[[ $OSTYPE == solaris* && -f ~/dotfiles/zsh/solaris/zshrc ]] && source ~/dotfiles/zsh/solaris/zshrc
+[[ $OSTYPE == freebsd* && -f ~/dotfiles/zsh/freebsd/zshrc ]] && source ~/dotfiles/zsh/freebsd/zshrc
+
+# Load host specific settings
+[[ -f ~/dotfiles/zsh/hosts/$HOST/zshrc ]] && source ~/dotfiles/zsh/hosts/$HOST/zshrc
+

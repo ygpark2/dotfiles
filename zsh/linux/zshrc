@@ -1,0 +1,4 @@
+# (-*- shell-script -*-)
+
+LANG=ko_KR.UTF-8
+PATH=/usr/local/bin:/usr/local/sbin:$PATH
