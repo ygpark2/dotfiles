@@ -53,6 +53,7 @@ export WORKON_HOME=$HOME/.virtualenvs
 [[ $OSTYPE == linux*   && -f ~/dotfiles/zsh/linux/zshrc ]]   && source ~/dotfiles/zsh/linux/zshrc
 [[ $OSTYPE == solaris* && -f ~/dotfiles/zsh/solaris/zshrc ]] && source ~/dotfiles/zsh/solaris/zshrc
 [[ $OSTYPE == freebsd* && -f ~/dotfiles/zsh/freebsd/zshrc ]] && source ~/dotfiles/zsh/freebsd/zshrc
+[[ $OSTYPE == cygwin* && -f ~/dotfiles/zsh/cygwin/zshrc ]] && source ~/dotfiles/zsh/cygwin/zshrc
 
 # Load host specific settings
 [[ -f ~/dotfiles/zsh/hosts/$HOST/zshrc ]] && source ~/dotfiles/zsh/hosts/$HOST/zshrc
