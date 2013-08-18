@@ -57,4 +57,3 @@ export WORKON_HOME=$HOME/.virtualenvs
 
 # Load host specific settings
 [[ -f ~/dotfiles/zsh/hosts/$HOST/zshrc ]] && source ~/dotfiles/zsh/hosts/$HOST/zshrc
-

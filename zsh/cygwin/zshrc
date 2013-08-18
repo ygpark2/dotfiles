@@ -3,6 +3,9 @@
 LANG=en_US.UTF-8
 PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
+alias apt-cyg='apt-cyg -m ftp://ftp.iij.ad.jp/pub/cygwin/'
+alias apt-cygports='apt-cyg -m ftp://sourceware.org/pub/cygwinports/'
+
 echo -ne    '\e]10;#d0d0d0\a' # ForegroundColour
 echo -ne    '\e]11;#1c1c1c\a' # BackgroundColour
 echo -ne    '\e]12;#ffaf00\a' # CursorColour
