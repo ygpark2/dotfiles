@@ -57,3 +57,6 @@ export WORKON_HOME=$HOME/.virtualenvs
 
 # Load host specific settings
 [[ -f ~/dotfiles/zsh/hosts/$HOST/zshrc ]] && source ~/dotfiles/zsh/hosts/$HOST/zshrc
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s ~/.gvm/bin/gvm-init.sh ]] && source ~/.gvm/bin/gvm-init.sh
