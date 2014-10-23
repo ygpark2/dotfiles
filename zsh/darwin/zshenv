@@ -4,7 +4,7 @@ path=( "$HOME/bin" "$HOME/.rvm/bin" /opt/local/bin /opt/local/sbin "$path[@]" )
 export PATH
 typeset -U path
 
-manpath=( /opt/local/man "$manpath[@]" )
+manpath=( /usr/share/man /usr/local/share/man /opt/local/man "$manpath[@]" )
 export MANPATH
 typeset -U manpath
 
