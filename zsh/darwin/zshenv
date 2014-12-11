@@ -34,6 +34,11 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home
 # Setup RVM
 [[ -s "~/.rvm/scripts/rvm" ]] && source "~/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
+# Setup Python Vritualenvwrapper 
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/pjt
+[[ -s "/opt/local/Library/Frameworks/Python.framework/Versions/3.4/virtualenvwrapper.sh" ]] && source "/opt/local/Library/Frameworks/Python.framework/Versions/3.4/virtualenvwrapper.sh"
+
 # PLT Scheme
 # path=( "$HOME/local/plt/bin" "$path[@]" )
 export PATH
