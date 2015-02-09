@@ -38,25 +38,22 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
-source ~/dotfiles/zsh/aliases
-source ~/dotfiles/zsh/options
-source ~/dotfiles/zsh/keybindings
-source ~/dotfiles/zsh/functions
+source $HOME/dotfiles/zsh/aliases
+source $HOME/dotfiles/zsh/options
+source $HOME/dotfiles/zsh/keybindings
+source $HOME/dotfiles/zsh/functions
 
 # Setup virtualenv wrapper
 export WORKON_HOME=$HOME/.virtualenvs
-# source ~/bin/virtualenvwrapper_bashrc
+# source $HOME/bin/virtualenvwrapper_bashrc
 # source /opt/local/bin/virtualenvwrapper_bashrc-2.6
 
 # Load OS specific settings
-[[ $OSTYPE == darwin*  && -f ~/dotfiles/zsh/darwin/zshrc ]]  && source ~/dotfiles/zsh/darwin/zshrc
-[[ $OSTYPE == linux*   && -f ~/dotfiles/zsh/linux/zshrc ]]   && source ~/dotfiles/zsh/linux/zshrc
-[[ $OSTYPE == solaris* && -f ~/dotfiles/zsh/solaris/zshrc ]] && source ~/dotfiles/zsh/solaris/zshrc
-[[ $OSTYPE == freebsd* && -f ~/dotfiles/zsh/freebsd/zshrc ]] && source ~/dotfiles/zsh/freebsd/zshrc
-[[ $OSTYPE == cygwin* && -f ~/dotfiles/zsh/cygwin/zshrc ]] && source ~/dotfiles/zsh/cygwin/zshrc
+[[ $OSTYPE == darwin*  && -f $HOME/dotfiles/zsh/darwin/zshrc  ]] && source $HOME/dotfiles/zsh/darwin/zshrc
+[[ $OSTYPE == linux*   && -f $HOME/dotfiles/zsh/linux/zshrc   ]] && source $HOME/dotfiles/zsh/linux/zshrc
+[[ $OSTYPE == solaris* && -f $HOME/dotfiles/zsh/solaris/zshrc ]] && source $HOME/dotfiles/zsh/solaris/zshrc
+[[ $OSTYPE == freebsd* && -f $HOME/dotfiles/zsh/freebsd/zshrc ]] && source $HOME/dotfiles/zsh/freebsd/zshrc
+[[ $OSTYPE == cygwin*  && -f $HOME/dotfiles/zsh/cygwin/zshrc  ]] && source $HOME/dotfiles/zsh/cygwin/zshrc
 
 # Load host specific settings
-[[ -f ~/dotfiles/zsh/hosts/$HOST/zshrc ]] && source ~/dotfiles/zsh/hosts/$HOST/zshrc
-
-#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s ~/.gvm/bin/gvm-init.sh ]] && source ~/.gvm/bin/gvm-init.sh
+[[ -f $HOME/dotfiles/zsh/hosts/$HOST/zshrc ]] && source $HOME/dotfiles/zsh/hosts/$HOST/zshrc

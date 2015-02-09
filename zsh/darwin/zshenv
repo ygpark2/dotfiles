@@ -1,6 +1,6 @@
 # (-*- shell-script -*-)
 
-path=( "$HOME/bin" "$HOME/.rvm/bin" /opt/local/bin /opt/local/sbin "$path[@]" )
+path=( "$HOME/bin" /opt/local/bin /opt/local/sbin "$path[@]" )
 export PATH
 typeset -U path
 
@@ -19,7 +19,7 @@ typeset -U manpath
 # export CCL_DEFAULT_DIRECTORY=/Users/mjl/work/clozure/1.2/
 
 # Setup Play Framework
-path=( "$HOME/Progs/play-2.0.6" "$GRAILS_HOME/bin" "$path[@]" )
+# path=( "$HOME/Progs/play-2.0.6" "$GRAILS_HOME/bin" "$path[@]" )
 # export CCL_DEFAULT_DIRECTORY=/Users/mjl/work/clozure/1.2/
 
 # Setup JAVA_HOME
@@ -32,12 +32,20 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home
 # path=( "$GROOVY_HOME/bin" "$GRAILS_HOME/bin" "$path[@]" )
 
 # Setup RVM
-[[ -s "~/.rvm/scripts/rvm" ]] && source "~/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# Setup GVM
+[[ -s "$HOME/.gvm/bin/gvm-init.sh" ]] && source "$HOME/.gvm/bin/gvm-init.sh"
+
+# Setup NVM
+[[ -s "$HOME/.nvm/nvm.sh" ]] && source "$HOME/.nvm/nvm.sh"
 
 # Setup Python Vritualenvwrapper 
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/pjt
-[[ -s "/opt/local/Library/Frameworks/Python.framework/Versions/3.4/virtualenvwrapper.sh" ]] && source "/opt/local/Library/Frameworks/Python.framework/Versions/3.4/virtualenvwrapper.sh"
+VIRTUALENVWRAPPER_PYTHON=/opt/local/bin/python3.4
+[[ -s "/opt/local/Library/Frameworks/Python.framework/Versions/3.4/bin/virtualenvwrapper.sh" ]] && source "/opt/local/Library/Frameworks/Python.framework/Versions/3.4/bin/virtualenvwrapper.sh"
+path=( "/opt/local/Library/Frameworks/Python.framework/Versions/3.4/bin" "$path[@]" )
 
 # PLT Scheme
 # path=( "$HOME/local/plt/bin" "$path[@]" )
