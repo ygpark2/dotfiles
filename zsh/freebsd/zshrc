@@ -1,4 +1,5 @@
 # (-*- shell-script -*-)
 
-LANG=en_US.UTF-8
+LANG=ko_KR.UTF-8
+
 PATH=/usr/local/bin:/usr/local/sbin:$PATH
