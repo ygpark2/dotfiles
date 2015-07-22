@@ -47,10 +47,39 @@
   '(ecb-options-version "2.40")
   '(ecb-windows-width 0.2)
   '(ecb-tree-indent 1)
-  '(ecb-source-path '("/Users/ygpark"
-                      "/Users/ygpark/Pjt"
-                      "/Users/ygpark/git"))
 )
+
+(cond (( string-equal system-type "gnu" )
+       (message "gnu ~~~~~~~~~~~~~"))
+      (( string-equal system-type "berkeley-unix" )
+       (custom-set-variables
+        '(ecb-source-path '("/home/ygpark2"
+                            "/home/ygpark2/pjt"
+                            "/home/ygpark2/pjt/prv/ygpark2.github.io"))
+        )
+       (message "feebsd ~~~~~~~~~~~~~"))
+      (( string-equal system-type "gnu/linux" )
+       (custom-set-variables
+        '(ecb-source-path '("/home/ygpark2"
+                            "/home/ygpark2/pjt"))
+        )
+       (message "gnu/linux ~~~~~~~~~~~~~"))
+      (( string-equal system-type "darwin" )
+       (custom-set-variables
+        '(ecb-source-path '("/Users/ygpark"
+                            "/Users/ygpark/Pjt"
+                            "/Users/ygpark/git"))
+        )
+       (message "darwin ~~~~~~~~~~~~~"))
+      (( string-equal system-type "ms-dos" )
+       (message "ms-dos ~~~~~~~~~~~~~"))
+      (( string-equal system-type "windows-nt" )
+       (message "window nt ~~~~~~~~~~~~~"))
+      (( string-equal system-type "cygwin" )
+       (message "cygwin ~~~~~~~~~~~~~"))
+      (t
+       (message "unknown system-type"))
+      )
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

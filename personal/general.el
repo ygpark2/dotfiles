@@ -27,6 +27,10 @@
        ;; change font
        (set-face-attribute 'default nil :font "Monaco-16")
        (message "gnu"))
+      (( string-equal system-type "berkeley-unix" )
+       (set-face-attribute 'default nil :font "NanumGothicCoding-16")
+       (add-to-list 'exec-path "/usr/local/bin/")
+       (message "freebsd"))
       (( string-equal system-type "gnu/linux" )
        ;; change font
        (set-face-attribute 'default nil :font "Monaco-16")
@@ -42,12 +46,13 @@
 
        (message "ms-dos"))
       (( string-equal system-type "windows-nt" )
-
        (message "windows-nt"))
       (( string-equal system-type "cygwin" )
        (message "cygwin"))
       (t
-       (message "unknown system-type")))
+       (message system-type)
+       (message "unknown system-type"))
+)
 
 ; Indentation
 (setq-default tab-width 2)              ; 2-space indent as default
