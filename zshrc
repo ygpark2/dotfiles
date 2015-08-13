@@ -57,3 +57,12 @@ export WORKON_HOME=$HOME/.virtualenvs
 
 # Load host specific settings
 [[ -f $HOME/dotfiles/zsh/hosts/$HOST/zshrc ]] && source $HOME/dotfiles/zsh/hosts/$HOST/zshrc
+
+if [[ -d $HOME/.pyenv/bin ]]; then
+	export PATH="$HOME/.pyenv/bin:$PATH"
+	eval "$(pyenv init -)"
+	eval "$(pyenv virtualenv-init -)"
+else
+
+fi
+
