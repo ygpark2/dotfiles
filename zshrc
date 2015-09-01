@@ -66,3 +66,16 @@ else
 
 fi
 
+if [[ -d $HOME/.nvm ]]; then
+	export NVM_DIR="$HOME/.nvm"
+	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+else
+
+fi
+
+if [[ -d $HOME/.rvm ]]; then
+	export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+	[ -s "$HOME/.rvm/scripts/rvm" ] && . "$HOME/.rvm/scripts/rvm"  # This loads rvm
+else
+
+fi
