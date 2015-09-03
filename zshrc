@@ -64,6 +64,7 @@ if [[ -d $HOME/.pyenv/bin ]]; then
 	eval "$(pyenv virtualenv-init -)"
 else
 	curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
+	pyenv install `pyenv install --list | grep "^ \+[3-9]\.[0-9]\.[0-9]$" | tail -n 1`
 fi
 
 if [[ -d $HOME/.nvm ]]; then
@@ -71,13 +72,14 @@ if [[ -d $HOME/.nvm ]]; then
 	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 else
 	curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | bash
+	nvm install stable
 fi
 
 if [[ -d $HOME/.rvm ]]; then
 	export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 	[ -s "$HOME/.rvm/scripts/rvm" ] && . "$HOME/.rvm/scripts/rvm"  # This loads rvm
 else
-	curl -sSL https://get.rvm.io | bash -s stable
+	curl -sSL https://get.rvm.io | bash -s stable  --ruby
 fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
@@ -86,4 +88,8 @@ if [[ -d $HOME/.gvm ]]; then
 	[[ -s "$GVM_DIR/bin/gvm-init.sh" ]] && source "$GVM_DIR/bin/gvm-init.sh"
 else
 	curl -s get.gvmtool.net | bash
+	gvm install groovy
+	gvm install grails
+	gvm install gradle
+	gvm install springboot
 fi
