@@ -79,3 +79,11 @@ if [[ -d $HOME/.rvm ]]; then
 else
 
 fi
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+if [[ -d $HOME/.gvm ]]; then
+	export GVM_DIR="$HOME/.gvm"
+	[[ -s "$GVM_DIR/bin/gvm-init.sh" ]] && source "$GVM_DIR/bin/gvm-init.sh"
+else
+
+fi
