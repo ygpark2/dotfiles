@@ -63,21 +63,21 @@ if [[ -d $HOME/.pyenv/bin ]]; then
 	eval "$(pyenv init -)"
 	eval "$(pyenv virtualenv-init -)"
 else
-
+	curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
 fi
 
 if [[ -d $HOME/.nvm ]]; then
 	export NVM_DIR="$HOME/.nvm"
 	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 else
-
+	curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | bash
 fi
 
 if [[ -d $HOME/.rvm ]]; then
 	export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 	[ -s "$HOME/.rvm/scripts/rvm" ] && . "$HOME/.rvm/scripts/rvm"  # This loads rvm
 else
-
+	curl -sSL https://get.rvm.io | bash -s stable
 fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
@@ -85,5 +85,5 @@ if [[ -d $HOME/.gvm ]]; then
 	export GVM_DIR="$HOME/.gvm"
 	[[ -s "$GVM_DIR/bin/gvm-init.sh" ]] && source "$GVM_DIR/bin/gvm-init.sh"
 else
-
+	curl -s get.gvmtool.net | bash
 fi
