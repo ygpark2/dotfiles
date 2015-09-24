@@ -83,13 +83,13 @@ else
 fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-if [[ -d $HOME/.gvm ]]; then
-	export GVM_DIR="$HOME/.gvm"
-	[[ -s "$GVM_DIR/bin/gvm-init.sh" ]] && source "$GVM_DIR/bin/gvm-init.sh"
+if [[ -d $HOME/.sdkman ]]; then
+	[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 else
-	curl -s get.gvmtool.net | bash
-	gvm install groovy
-	gvm install grails
-	gvm install gradle
-	gvm install springboot
+	curl -s get.sdkman.io | bash
+	sdk install scala 
+	sdk install groovy
+	sdk install grails
+	sdk install gradle
+	sdk install springboot
 fi
