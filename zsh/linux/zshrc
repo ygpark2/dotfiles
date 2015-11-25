@@ -1,4 +1,6 @@
 # (-*- shell-script -*-)
 
+source ~/dotfiles/zsh/linux/zshenv
+
 LANG=ko_KR.UTF-8
 PATH=/usr/local/bin:/usr/local/sbin:$PATH
