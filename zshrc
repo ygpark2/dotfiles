@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+ZSH=$HOME/dotfiles/oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -32,7 +32,7 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(rails git python scala sbt rvm ruby cloudapp coffee node web-search ssh-agent)
+plugins=(rails git python scala sbt rvm ruby cloudapp coffee node web-search ssh-agent composer)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -93,3 +93,12 @@ else
 	sdk install gradle
 	sdk install springboot
 fi
+
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+
+[[ -s "$HOME/.phpvm/current/default" ]] && export PATH="$PATH:$HOME/.phpvm/current/default/bin"
+
+# PHPVM_BIN="$HOME/bin/phpvm"
+# MY_PHP_VERSION='5.6.27'
+# alias php="$("$PHPVM_BIN" bin "$MY_PHP_VERSION")/php"
+# alias composer="php $("$PHPVM_BIN" bin "$MY_PHP_VERSION")/composer.phar"
