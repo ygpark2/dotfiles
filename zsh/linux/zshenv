@@ -9,7 +9,8 @@
 
 # Setup JAVA_HOME
 # export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
-export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
+# export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
+# export JAVA_HOME=/usr/lib/jvm/java-1.9.0-openjdk-amd64
 
 # Setup Groovy and Grails
 # export GROOVY_HOME=/Users/mjl/work/java/groovy
@@ -18,11 +19,20 @@ export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
 # export PATH
 # typeset -U path
 
+# export AWS_ACCESS_KEY_ID=AKIAINGFHCCMXA6UVELQ
+# export AWS_SECRET_ACCESS_KEY=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
+
 # Setup Clojure
 # export CLOJURE_EXT=$HOME/.clojurelib
 
 if [[ -d /opt/ghc && -d /opt/cabal ]]; then
 	export PATH=$PATH:/opt/cabal/1.24/bin:/opt/ghc/7.10.2/bin
+else
+
+fi
+
+if [[ -d $HOME/.local/bin ]]; then
+	export PATH=$PATH:$HOME/.local/bin
 else
 
 fi

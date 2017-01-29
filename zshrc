@@ -5,7 +5,7 @@ ZSH=$HOME/dotfiles/oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -62,6 +62,8 @@ if [[ -d $HOME/.pyenv/bin ]]; then
 	export PATH="$HOME/.pyenv/bin:$PATH"
 	eval "$(pyenv init -)"
 	eval "$(pyenv virtualenv-init -)"
+	# source $HOME/.pyenv/plugins/pyenv-autoenv/bin/pyenv-autoenv
+	# source virtualenvwrapper.sh
 else
 	curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
 	pyenv install `pyenv install --list | grep "^ \+[3-9]\.[0-9]\.[0-9]$" | tail -n 1`
@@ -87,7 +89,7 @@ if [[ -d $HOME/.sdkman ]]; then
 	[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 else
 	curl -s get.sdkman.io | bash
-	sdk install scala 
+	sdk install scala
 	sdk install groovy
 	sdk install grails
 	sdk install gradle
@@ -102,3 +104,9 @@ fi
 # MY_PHP_VERSION='5.6.27'
 # alias php="$("$PHPVM_BIN" bin "$MY_PHP_VERSION")/php"
 # alias composer="php $("$PHPVM_BIN" bin "$MY_PHP_VERSION")/composer.phar"
+
+# jabba installation
+[[ -s "$HOME/.jabba/jabba.sh" ]] && source "$HOME/.jabba/jabba.sh"
+
+# autoenv installation
+[[ -s "$HOME/.autoenv/activate.sh" ]] && source "$HOME/.autoenv/activate.sh"
