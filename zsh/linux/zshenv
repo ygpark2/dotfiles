@@ -19,9 +19,6 @@
 # export PATH
 # typeset -U path
 
-# export AWS_ACCESS_KEY_ID=AKIAINGFHCCMXA6UVELQ
-# export AWS_SECRET_ACCESS_KEY=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
-
 # Setup Clojure
 # export CLOJURE_EXT=$HOME/.clojurelib
 
