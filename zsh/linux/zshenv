@@ -12,6 +12,16 @@
 # export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
 # export JAVA_HOME=/usr/lib/jvm/java-1.9.0-openjdk-amd64
 
+# Setup ANDROID_HOME
+if [[ -d $HOME/progs/android ]]; then
+	export ANDROID_HOME=$HOME/progs/android
+	path=( "$ANDROID_HOME/tools" "$ANDROID_HOME/tools/bin" "$ANDROID_HOME/platform-tools" "$path[@]" )
+	export PATH
+	typeset -U path
+else
+
+fi
+
 # Setup Groovy and Grails
 # export GROOVY_HOME=/Users/mjl/work/java/groovy
 # export GRAILS_HOME=/Users/mjl/work/java/grails
