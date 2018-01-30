@@ -5,7 +5,7 @@ ZSH=$HOME/dotfiles/oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
+ZSH_THEME="materialshell"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -110,3 +110,11 @@ fi
 
 # autoenv installation
 [[ -s "$HOME/.autoenv/activate.sh" ]] && source "$HOME/.autoenv/activate.sh"
+
+[[ -s "$HOME/progs/android/tools" ]] && export PATH="$PATH:$HOME/progs/android/tools:$HOME/progs/android/tools/bin"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "$HOME/progs/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/progs/google-cloud-sdk/path.zsh.inc"; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "$HOME/progs/google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/progs/google-cloud-sdk/completion.zsh.inc"; fi
