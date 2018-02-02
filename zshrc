@@ -111,7 +111,12 @@ fi
 # autoenv installation
 [[ -s "$HOME/.autoenv/activate.sh" ]] && source "$HOME/.autoenv/activate.sh"
 
-[[ -s "$HOME/progs/android/tools" ]] && export PATH="$PATH:$HOME/progs/android/tools:$HOME/progs/android/tools/bin"
+if [ -s "$HOME/progs/android/tools" ]; then
+	export PATH="$PATH:$HOME/progs/android/tools:$HOME/progs/android/tools/bin";
+	export ANDROID_HOME="$HOME/progs/android"
+fi
+
+[[ -s "$HOME/progs/flutter/bin" ]] && export PATH="$PATH:$HOME/progs/flutter/bin"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/progs/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/progs/google-cloud-sdk/path.zsh.inc"; fi
