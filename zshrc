@@ -111,7 +111,12 @@ fi
 # autoenv installation
 [[ -s "$HOME/.autoenv/activate.sh" ]] && source "$HOME/.autoenv/activate.sh"
 
-[[ -s "$HOME/progs/android/tools" ]] && export PATH="$PATH:$HOME/progs/android/tools:$HOME/progs/android/tools/bin"
+if [ -s "$HOME/progs/android/tools" ]; then
+	export PATH="$PATH:$HOME/progs/android/tools:$HOME/progs/android/tools/bin";
+	export ANDROID_HOME="$HOME/progs/android"
+fi
+
+[[ -s "$HOME/progs/flutter/bin" ]] && export PATH="$PATH:$HOME/progs/flutter/bin"
 
 [[ -s "$HOME/.pub-cache/bin" ]] && export PATH="$PATH":"$HOME/.pub-cache/bin"
 
