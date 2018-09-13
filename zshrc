@@ -113,6 +113,8 @@ fi
 
 [[ -s "$HOME/progs/android/tools" ]] && export PATH="$PATH:$HOME/progs/android/tools:$HOME/progs/android/tools/bin"
 
+[[ -s "$HOME/.pub-cache/bin" ]] && export PATH="$PATH":"$HOME/.pub-cache/bin"
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/progs/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/progs/google-cloud-sdk/path.zsh.inc"; fi
 
