@@ -1,5 +1,10 @@
 #/usr/bin/env sh
 
+if [[ -d $HOME/dotfiles/zsh/hosts/$HOST ]]; then
+	mkdir -p $HOME/dotfiles/zsh/hosts/$HOST
+	touch $HOME/dotfiles/zsh/hosts/$HOST/zshrc
+if
+
 if [ -d ~/.autoenv ] ; then
 	echo "autoenv is already installed!"
 else
