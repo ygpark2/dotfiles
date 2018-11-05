@@ -96,6 +96,9 @@ else
 	sdk install springboot
 fi
 
+[[ -s "$HOME/.shenv" ]] && export SHENV_ROOT="$HOME/.shenv"
+[[ -s "$HOME/.shenv" ]] && export PATH="$SHENV_ROOT/bin:$PATH"
+
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
 [[ -s "$HOME/.phpvm/current/default" ]] && export PATH="$PATH:$HOME/.phpvm/current/default/bin"
