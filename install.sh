@@ -14,9 +14,7 @@ fi
 if [ -f ~/dotfiles/oh-my-zsh/themes/materialshell-dark.zsh-theme ] ; then
 	echo "materialshell theme is already installed!"
 else
-	curl -L -o /tmp/master.zip https://github.com/carloscuesta/materialshell/archive/master.zip
-	unzip -u -d /tmp /tmp/master.zip
-	cp /tmp/materialshell-master/zsh/* ~/dotfiles/oh-my-zsh/themes/
+	curl -L -o ~/dotfiles/oh-my-zsh/custom/themes/materialshell.zsh-theme https://raw.githubusercontent.com/carloscuesta/materialshell/master/materialshell.zsh
 fi
 
 
