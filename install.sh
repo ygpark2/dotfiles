@@ -1,5 +1,12 @@
 #/usr/bin/env sh
 
+if [ -d ~/dotfiles/emacs.d ] && [ -d ~/dotfiles/oh-my-zsh ]; then
+	echo "emacs.d and oh-my-zsh submodule exist!"
+else
+	git submodule init
+	git submodule update
+fi
+
 if [[ -d $HOME/dotfiles/zsh/hosts/$HOST ]]; then
 	mkdir -p $HOME/dotfiles/zsh/hosts/$HOST
 	touch $HOME/dotfiles/zsh/hosts/$HOST/zshrc
@@ -15,14 +22,6 @@ if [ -f ~/dotfiles/oh-my-zsh/themes/materialshell-dark.zsh-theme ] ; then
 	echo "materialshell theme is already installed!"
 else
 	curl -L -o ~/dotfiles/oh-my-zsh/custom/themes/materialshell.zsh-theme https://raw.githubusercontent.com/carloscuesta/materialshell/master/materialshell.zsh
-fi
-
-
-if [ -d ~/dotfiles/emacs.d ] && [ -d ~/dotfiles/oh-my-zsh ]; then
-	echo "emacs.d and oh-my-zsh submodule exist!"
-else
-	git submodule init
-	git submodule update
 fi
 
 if [ -L ~/.oh-my-zsh ]; then
