@@ -1,1 +1,7 @@
-export XDG_DATA_DIRS=$XDG_DATA_DIRS:/var/lib/snapd/desktop
+#/usr/bin/env sh
+
+if [ -d /var/lib/snapd/desktop ]; then
+	export XDG_DATA_DIRS=$XDG_DATA_DIRS:/var/lib/snapd/desktop
+else
+	echo "snapd directory does not exist!"
+fi
