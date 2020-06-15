@@ -7,10 +7,12 @@ else
 	git submodule update
 fi
 
-if [[ -d $HOME/dotfiles/zsh/hosts/$HOST ]]; then
+if [ -d $HOME/dotfiles/zsh/hosts/$HOST ]; then
+	echo "$HOST folder is already installed!"
+else
 	mkdir -p $HOME/dotfiles/zsh/hosts/$HOST
 	touch $HOME/dotfiles/zsh/hosts/$HOST/zshrc
-if
+fi
 
 if [ -d ~/.autoenv ] ; then
 	echo "autoenv is already installed!"
@@ -18,7 +20,7 @@ else
 	git clone git://github.com/kennethreitz/autoenv.git ~/.autoenv
 fi
 
-if [ -f ~/dotfiles/oh-my-zsh/themes/materialshell-dark.zsh-theme ] ; then
+if [ -f ~/dotfiles/oh-my-zsh/custom/themes/materialshell-dark.zsh-theme ] ; then
 	echo "materialshell theme is already installed!"
 else
 	curl -L -o ~/dotfiles/oh-my-zsh/custom/themes/materialshell.zsh-theme https://raw.githubusercontent.com/carloscuesta/materialshell/master/materialshell.zsh
@@ -46,6 +48,12 @@ if [ -L ~/dotfiles/emacs.d/personal ]; then
 	echo "emacs personal symbolic link exist!"
 else
 	ln -s ~/dotfiles/personal ~/dotfiles/emacs.d/personal
+fi
+
+if [ -L ~/.xsessionrc ]; then
+	echo ".xsessionrc symbolic link exist!"
+else
+	ln -s ~/dotfiles/xsessionrc ~/.xsessionrc
 fi
 
 if [ -d ~/dotfiles/emacs.d/emms ]; then

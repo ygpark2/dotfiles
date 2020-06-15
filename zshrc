@@ -130,3 +130,5 @@ if [ -f "$HOME/progs/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/progs/
 if [ -f "$HOME/progs/google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/progs/google-cloud-sdk/completion.zsh.inc"; fi
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+[[ -s "/home/ygpark2/.gvm/scripts/gvm" ]] && source "/home/ygpark2/.gvm/scripts/gvm"
