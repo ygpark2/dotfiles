@@ -26,6 +26,18 @@ else
 	curl -L -o ~/dotfiles/oh-my-zsh/custom/themes/materialshell.zsh-theme https://raw.githubusercontent.com/carloscuesta/materialshell/master/materialshell.zsh
 fi
 
+if [ -d ~/dotfiles/oh-my-zsh/custom/plugins/zsh-syntax-highlighting ] ; then
+        echo "plugins zsh-syntax-highlighting is already installed!"
+else
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+fi
+
+if [ -d ~/dotfiles/oh-my-zsh/custom/plugins/zsh-autosuggestions ] ; then
+        echo "plugins zsh-autosuggestions is already installed!"
+else
+	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+fi
+
 if [ -L ~/.oh-my-zsh ]; then
 	echo ".oh-my-zsh symbolic link exist!"
 else
