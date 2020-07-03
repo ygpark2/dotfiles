@@ -14,18 +14,29 @@ else
 	touch $HOME/dotfiles/zsh/hosts/$HOST/zshrc
 fi
 
-if [ -d ~/.autoenv ] ; then
+if [ -d ~/.autoenv ]; then
 	echo "autoenv is already installed!"
 else
 	git clone git://github.com/kennethreitz/autoenv.git ~/.autoenv
 fi
 
+if [ -d ~/.gvm ]; then
+	echo "go version manager is already installed!"
+else
+	curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer | zsh
+	gvm install go1.4 -B
+	gvm use go1.4
+	export GOROOT_BOOTSTRAP=$GOROOT
+fi
+
+# ==================== install oh-my-zsh theme ================
 if [ -f ~/dotfiles/oh-my-zsh/custom/themes/materialshell-dark.zsh-theme ] ; then
 	echo "materialshell theme is already installed!"
 else
 	curl -L -o ~/dotfiles/oh-my-zsh/custom/themes/materialshell.zsh-theme https://raw.githubusercontent.com/carloscuesta/materialshell/master/materialshell.zsh
 fi
 
+# ==================== install oh-my-zsh plugins ================
 if [ -d ~/dotfiles/oh-my-zsh/custom/plugins/zsh-syntax-highlighting ] ; then
         echo "plugins zsh-syntax-highlighting is already installed!"
 else
@@ -37,6 +48,19 @@ if [ -d ~/dotfiles/oh-my-zsh/custom/plugins/zsh-autosuggestions ] ; then
 else
 	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 fi
+
+if [ -d ~/dotfiles/oh-my-zsh/custom/plugins/zsh-nvm ] ; then
+        echo "plugins zsh-nvm is already installed!"
+else
+	git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
+fi
+
+if [ -d ~/dotfiles/oh-my-zsh/custom/plugins/zsh-sdkman ] ; then
+        echo "plugins zsh-sdkman is already installed!"
+else
+	git clone https://github.com/matthieusb/zsh-sdkman.git ~/.oh-my-zsh/custom/plugins/zsh-sdkman
+fi
+# ==================== End of installation oh-my-zsh plugins ================
 
 if [ -L ~/.oh-my-zsh ]; then
 	echo ".oh-my-zsh symbolic link exist!"
@@ -56,10 +80,10 @@ else
 	ln -s ~/dotfiles/zshrc ~/.zshrc
 fi
 
-if [ -L ~/dotfiles/emacs.d/personal ]; then
+if [ -D ~/dotfiles/emacs.d/personal ]; then
 	echo "emacs personal symbolic link exist!"
 else
-	ln -s ~/dotfiles/personal ~/dotfiles/emacs.d/personal
+	cp ~/dotfiles/personal/* ~/dotfiles/emacs.d/personal/
 fi
 
 if [ -L ~/.xsessionrc ]; then

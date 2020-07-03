@@ -32,7 +32,7 @@ ZSH_THEME="agnoster" # "materialshell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(rails git python scala sbt rvm ruby cloudapp coffee node web-search ssh-agent composer zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(rails git python scala sbt rvm ruby cloudapp coffee node web-search ssh-agent composer zsh-autosuggestions zsh-syntax-highlighting zsh-nvm zsh-sdkman)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -69,14 +69,6 @@ else
 	pyenv install `pyenv install --list | grep "^ \+[3-9]\.[0-9]\.[0-9]$" | tail -n 1`
 fi
 
-if [[ -d $HOME/.nvm ]]; then
-	export NVM_DIR="$HOME/.nvm"
-	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-else
-	curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | bash
-	nvm install stable
-fi
-
 if [[ -d $HOME/.rvm ]]; then
 	export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 	[ -s "$HOME/.rvm/scripts/rvm" ] && . "$HOME/.rvm/scripts/rvm"  # This loads rvm
@@ -84,7 +76,18 @@ else
 	curl -sSL https://get.rvm.io | bash -s stable  --ruby
 fi
 
-#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+
+if [[ -d $HOME/.dvm ]]; then
+	[[ -s "$HOME/.dvm/scripts/dvm" ]] && source "$HOME/.dvm/scripts/dvm"
+	[[ -d "$HOME/.pub-cache/bin" ]] && export PATH="$PATH":"$HOME/.pub-cache/bin"
+else
+	git clone https://github.com/cbracken/dvm.git .dvm
+	[[ -s "$HOME/.dvm/scripts/dvm" ]] && source "$HOME/.dvm/scripts/dvm"
+	dvm install `dvm listall | grep "^[2-9]\.[[:digit:]]\.[[:digit:]]$" | tail -1`
+	dvm use `dvm list | grep "^[2-9]\.[[:digit:]]\.[[:digit:]]$" | tail -1`
+	pub global activate fvm
+fi
+
 if [[ -d $HOME/.sdkman ]]; then
 	[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 else
@@ -118,10 +121,6 @@ if [ -s "$HOME/Android/Sdk" ]; then
 	export ANDROID_HOME="$HOME/Android/Sdk"
 	export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 fi
-
-[[ -s "$HOME/progs/flutter/bin" ]] && export PATH="$PATH:$HOME/progs/flutter/bin"
-
-[[ -s "$HOME/.pub-cache/bin" ]] && export PATH="$PATH":"$HOME/.pub-cache/bin"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/progs/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/progs/google-cloud-sdk/path.zsh.inc"; fi
