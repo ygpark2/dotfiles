@@ -32,7 +32,7 @@ ZSH_THEME="agnoster" # "materialshell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(rails git python scala sbt rvm ruby cloudapp coffee node web-search ssh-agent composer zsh-autosuggestions zsh-syntax-highlighting zsh-nvm zsh-sdkman)
+plugins=(aws rails git python scala sbt rvm ruby gcloud coffee node web-search ssh-agent composer zsh-autosuggestions zsh-syntax-highlighting zsh-nvm zsh-sdkman)
 
 source $ZSH/oh-my-zsh.sh
 
