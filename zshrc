@@ -32,7 +32,7 @@ ZSH_THEME="agnoster" # "materialshell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(aws git python scala sbt gcloud golang helm kubectl flutter web-search ssh-agent composer zsh-autosuggestions zsh-syntax-highlighting zsh-nvm zsh-sdkman)
+plugins=(autoenv aws git python scala sbt gcloud golang helm kubectl docker docker-compose flutter web-search ssh-agent composer zsh-autosuggestions zsh-syntax-highlighting zsh-nvm zsh-sdkman)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -114,20 +114,8 @@ fi
 # jabba installation
 [[ -s "$HOME/.jabba/jabba.sh" ]] && source "$HOME/.jabba/jabba.sh"
 
-# autoenv installation
-[[ -s "$HOME/.autoenv/activate.sh" ]] && source "$HOME/.autoenv/activate.sh"
-
 if [ -s "$HOME/Android/Sdk" ]; then
 	export ANDROID_HOME="$HOME/Android/Sdk"
 	export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 fi
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f "$HOME/progs/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/progs/google-cloud-sdk/path.zsh.inc"; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f "$HOME/progs/google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/progs/google-cloud-sdk/completion.zsh.inc"; fi
-
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-[[ -s "/home/ygpark2/.gvm/scripts/gvm" ]] && source "/home/ygpark2/.gvm/scripts/gvm"
