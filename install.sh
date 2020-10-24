@@ -52,13 +52,13 @@ fi
 if [ -d ~/dotfiles/oh-my-zsh/custom/plugins/zsh-nvm ] ; then
         echo "plugins zsh-nvm is already installed!"
 else
-	git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
+	git clone https://github.com/lukechilds/zsh-nvm ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-nvm
 fi
 
 if [ -d ~/dotfiles/oh-my-zsh/custom/plugins/zsh-sdkman ] ; then
         echo "plugins zsh-sdkman is already installed!"
 else
-	git clone https://github.com/matthieusb/zsh-sdkman.git ~/.oh-my-zsh/custom/plugins/zsh-sdkman
+	git clone https://github.com/matthieusb/zsh-sdkman.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-sdkman
 fi
 # ==================== End of installation oh-my-zsh plugins ================
 
