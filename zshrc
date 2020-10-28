@@ -121,13 +121,3 @@ if [ -s "$HOME/Android/Sdk" ]; then
 	export ANDROID_HOME="$HOME/Android/Sdk"
 	export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 fi
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f "$HOME/progs/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/progs/google-cloud-sdk/path.zsh.inc"; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f "$HOME/progs/google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/progs/google-cloud-sdk/completion.zsh.inc"; fi
-
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-[[ -s "/home/ygpark2/.gvm/scripts/gvm" ]] && source "/home/ygpark2/.gvm/scripts/gvm"
