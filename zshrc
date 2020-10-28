@@ -32,7 +32,7 @@ ZSH_THEME="agnoster" # "materialshell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(aws git python scala sbt gcloud golang helm kubectl flutter web-search ssh-agent composer zsh-autosuggestions zsh-syntax-highlighting zsh-nvm zsh-sdkman)
+plugins=(autoenv aws git python scala sbt gcloud golang helm kubectl docker docker-compose flutter web-search ssh-agent composer zsh-autosuggestions zsh-syntax-highlighting zsh-nvm zsh-sdkman)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -114,10 +114,8 @@ fi
 # jabba installation
 [[ -s "$HOME/.jabba/jabba.sh" ]] && source "$HOME/.jabba/jabba.sh"
 
-# autoenv installation
-[[ -s "$HOME/.autoenv/activate.sh" ]] && source "$HOME/.autoenv/activate.sh"
-
 if [ -s "$HOME/Android/Sdk" ]; then
 	export ANDROID_HOME="$HOME/Android/Sdk"
 	export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 fi
+

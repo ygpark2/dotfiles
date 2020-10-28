@@ -1,2 +1,5 @@
 # (-*- shell-script -*-)
 
+alias android-mount="jmtpfs ~/android"
+alias android-unmount="fusermount -u ~/android"
+
