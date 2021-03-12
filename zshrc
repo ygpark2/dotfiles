@@ -99,6 +99,13 @@ else
 	sdk install springboot
 fi
 
+if [[ -d $HOME/.cargo ]]; then
+	[[ -s "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
+else
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+fi
+
+
 [[ -s "$HOME/.shenv" ]] && export SHENV_ROOT="$HOME/.shenv"
 [[ -s "$HOME/.shenv" ]] && export PATH="$SHENV_ROOT/bin:$PATH"
 
