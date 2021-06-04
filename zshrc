@@ -59,8 +59,10 @@ export WORKON_HOME=$HOME/.virtualenvs
 [[ -f $HOME/dotfiles/zsh/hosts/$HOST/zshrc ]] && source $HOME/dotfiles/zsh/hosts/$HOST/zshrc
 
 if [[ -d $HOME/.pyenv/bin ]]; then
-	export PATH="$HOME/.pyenv/bin:$PATH"
-	eval "$(pyenv init -)"
+	export PYENV_ROOT="$HOME/.pyenv"
+	export PATH="$PYENV_ROOT/bin:$PATH"
+	eval "$(pyenv init --path)"
+	# eval "$(pyenv init -)"
 	eval "$(pyenv virtualenv-init -)"
 	# source $HOME/.pyenv/plugins/pyenv-autoenv/bin/pyenv-autoenv
 	# source virtualenvwrapper.sh
@@ -126,3 +128,5 @@ if [ -s "$HOME/Android/Sdk" ]; then
 	export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 fi
 
+
+[[ -s "/home/ygpark2/.gvm/scripts/gvm" ]] && source "/home/ygpark2/.gvm/scripts/gvm"
