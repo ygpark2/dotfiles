@@ -1,11 +1,6 @@
 #/usr/bin/env sh
 
-if [ -d ~/dotfiles/emacs.d ] && [ -d ~/dotfiles/oh-my-zsh ]; then
-	echo "emacs.d and oh-my-zsh submodule exist!"
-else
-	git submodule init
-	git submodule update
-fi
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 if [ -d $HOME/dotfiles/zsh/hosts/$HOST ]; then
 	echo "$HOST folder is already installed!"
@@ -61,12 +56,6 @@ else
 	git clone https://github.com/matthieusb/zsh-sdkman.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-sdkman
 fi
 # ==================== End of installation oh-my-zsh plugins ================
-
-if [ -L ~/.oh-my-zsh ]; then
-	echo ".oh-my-zsh symbolic link exist!"
-else
-	ln -s ~/dotfiles/oh-my-zsh ~/.oh-my-zsh
-fi
 
 if [ -L ~/.emacs.d ]; then
 	echo ".emacs.d symbolic link exist!"
