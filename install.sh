@@ -1,11 +1,6 @@
 #/usr/bin/env sh
 
-if [ -d ~/dotfiles/emacs.d ] && [ -d ~/dotfiles/oh-my-zsh ]; then
-	echo "emacs.d and oh-my-zsh submodule exist!"
-else
-	git submodule init
-	git submodule update
-fi
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 if [ -d $HOME/dotfiles/zsh/hosts/$HOST ]; then
 	echo "$HOST folder is already installed!"

@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/dotfiles/oh-my-zsh
+ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -59,9 +59,10 @@ export WORKON_HOME=$HOME/.virtualenvs
 [[ -f $HOME/dotfiles/zsh/hosts/$HOST/zshrc ]] && source $HOME/dotfiles/zsh/hosts/$HOST/zshrc
 
 if [[ -d $HOME/.pyenv/bin ]]; then
-    export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init --path)"
+	export PYENV_ROOT="$HOME/.pyenv"
+	export PATH="$PYENV_ROOT/bin:$PATH"
+	eval "$(pyenv init --path)"
+	# eval "$(pyenv init -)"
 	eval "$(pyenv virtualenv-init -)"
 	# source $HOME/.pyenv/plugins/pyenv-autoenv/bin/pyenv-autoenv
 	# source virtualenvwrapper.sh
@@ -136,3 +137,5 @@ if [ -s "$HOME/Android/Sdk" ]; then
 	export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 fi
 
+
+[[ -s "/home/ygpark2/.gvm/scripts/gvm" ]] && source "/home/ygpark2/.gvm/scripts/gvm"
