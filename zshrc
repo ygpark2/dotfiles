@@ -59,8 +59,9 @@ export WORKON_HOME=$HOME/.virtualenvs
 [[ -f $HOME/dotfiles/zsh/hosts/$HOST/zshrc ]] && source $HOME/dotfiles/zsh/hosts/$HOST/zshrc
 
 if [[ -d $HOME/.pyenv/bin ]]; then
-	export PATH="$HOME/.pyenv/bin:$PATH"
-	eval "$(pyenv init -)"
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init --path)"
 	eval "$(pyenv virtualenv-init -)"
 	# source $HOME/.pyenv/plugins/pyenv-autoenv/bin/pyenv-autoenv
 	# source virtualenvwrapper.sh
@@ -76,12 +77,14 @@ else
 	curl -sSL https://get.rvm.io | bash -s stable  --ruby
 fi
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 if [[ -d $HOME/.dvm ]]; then
 	[[ -s "$HOME/.dvm/scripts/dvm" ]] && source "$HOME/.dvm/scripts/dvm"
 	[[ -d "$HOME/.pub-cache/bin" ]] && export PATH="$PATH":"$HOME/.pub-cache/bin"
 else
-	git clone https://github.com/cbracken/dvm.git .dvm
+	git clone https://github.com/cbracken/dvm.git $HOME/.dvm
 	[[ -s "$HOME/.dvm/scripts/dvm" ]] && source "$HOME/.dvm/scripts/dvm"
 	dvm install `dvm listall | grep "^[2-9]\.[[:digit:]]\.[[:digit:]]$" | tail -1`
 	dvm use `dvm list | grep "^[2-9]\.[[:digit:]]\.[[:digit:]]$" | tail -1`
@@ -98,6 +101,13 @@ else
 	sdk install gradle
 	sdk install springboot
 fi
+
+if [[ -d $HOME/.tfenv ]]; then
+  [[ -d "$HOME/.tfenv/bin" ]] && export PATH="$HOME/.tfenv/bin:$PATH"
+else
+	git clone https://github.com/tfutils/tfenv.git $HOME/.tfenv
+fi
+
 
 if [[ -d $HOME/.cargo ]]; then
 	[[ -s "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"

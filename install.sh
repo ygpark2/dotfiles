@@ -17,7 +17,13 @@ fi
 if [ -d ~/.autoenv ]; then
 	echo "autoenv is already installed!"
 else
-	git clone git://github.com/kennethreitz/autoenv.git ~/.autoenv
+	git clone 'https://github.com/hyperupcall/autoenv' ~/.autoenv	
+fi
+
+if [ -d ~/.tfenv ]; then
+	echo "tfenv is already installed!"
+else
+	git clone --depth=1 https://github.com/tfutils/tfenv.git ~/.tfenv
 fi
 
 if [ -d ~/.gvm ]; then
@@ -29,8 +35,21 @@ else
 	export GOROOT_BOOTSTRAP=$GOROOT
 fi
 
+
+if [ -L ~/.oh-my-zsh ]; then
+	echo ".oh-my-zsh symbolic link exist!"
+else
+	ln -s ~/dotfiles/oh-my-zsh ~/.oh-my-zsh
+fi
+
 # ==================== install oh-my-zsh theme ================
-if [ -f ~/dotfiles/oh-my-zsh/custom/themes/materialshell-dark.zsh-theme ] ; then
+if [ -d ~/dotfiles/oh-my-zsh/custom/themes ]; then
+	echo "custome themes folder is already existed!"
+else
+	mkdir ~/dotfiles/oh-my-zsh/custom/themes/
+fi
+
+if [ -f ~/dotfiles/oh-my-zsh/custom/themes/materialshell.zsh-theme ] ; then
 	echo "materialshell theme is already installed!"
 else
 	curl -L -o ~/dotfiles/oh-my-zsh/custom/themes/materialshell.zsh-theme https://raw.githubusercontent.com/carloscuesta/materialshell/master/materialshell.zsh
@@ -58,20 +77,25 @@ fi
 if [ -d ~/dotfiles/oh-my-zsh/custom/plugins/zsh-sdkman ] ; then
         echo "plugins zsh-sdkman is already installed!"
 else
-	git clone https://github.com/matthieusb/zsh-sdkman.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-sdkman
+	git clone https://github.com/matthieusb/zsh-sdkman ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-sdkman
 fi
 # ==================== End of installation oh-my-zsh plugins ================
-
-if [ -L ~/.oh-my-zsh ]; then
-	echo ".oh-my-zsh symbolic link exist!"
-else
-	ln -s ~/dotfiles/oh-my-zsh ~/.oh-my-zsh
-fi
-
 if [ -L ~/.emacs.d ]; then
 	echo ".emacs.d symbolic link exist!"
 else
 	ln -s ~/dotfiles/emacs.d ~/.emacs.d
+fi
+
+if [ -d ~/dotfiles/emacs.d/personal ]; then
+	echo "emacs personal symbolic link exist!"
+else
+	cp ~/dotfiles/personal/* ~/dotfiles/emacs.d/personal/
+fi
+
+if [ -d ~/dotfiles/emacs.d/emms ]; then
+	echo "emacs emms directory exist!"
+else
+	mkdir ~/dotfiles/emacs.d/emms
 fi
 
 if [ -L ~/.zshrc ]; then
@@ -80,21 +104,10 @@ else
 	ln -s ~/dotfiles/zshrc ~/.zshrc
 fi
 
-if [ -D ~/dotfiles/emacs.d/personal ]; then
-	echo "emacs personal symbolic link exist!"
-else
-	cp ~/dotfiles/personal/* ~/dotfiles/emacs.d/personal/
-fi
-
 if [ -L ~/.xsessionrc ]; then
 	echo ".xsessionrc symbolic link exist!"
 else
 	ln -s ~/dotfiles/xsessionrc ~/.xsessionrc
 fi
 
-if [ -d ~/dotfiles/emacs.d/emms ]; then
-	echo "emacs emms directory exist!"
-else
-	mkdir ~/dotfiles/emacs.d/emms
-fi
 
