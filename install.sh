@@ -21,6 +21,12 @@ else
 	git clone --depth=1 https://github.com/tfutils/tfenv.git ~/.tfenv
 fi
 
+if [ -d ~/.asdf ]; then
+	echo "asdf is already installed!"
+else
+	git clone https://github.com/asdf-vm/asdf.git ~/.asdf	
+fi
+
 if [ -d ~/.gvm ]; then
 	echo "go version manager is already installed!"
 else
