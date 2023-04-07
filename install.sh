@@ -81,6 +81,7 @@ else
 	git clone https://github.com/matthieusb/zsh-sdkman ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-sdkman
 fi
 # ==================== End of installation oh-my-zsh plugins ================
+
 if [ -L ~/.emacs.d ]; then
 	echo ".emacs.d symbolic link exist!"
 else

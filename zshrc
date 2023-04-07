@@ -58,28 +58,33 @@ export WORKON_HOME=$HOME/.virtualenvs
 # Load host specific settings
 [[ -f $HOME/dotfiles/zsh/hosts/$HOST/zshrc ]] && source $HOME/dotfiles/zsh/hosts/$HOST/zshrc
 
-if [[ -d $HOME/.pyenv/bin ]]; then
-	export PYENV_ROOT="$HOME/.pyenv"
-	export PATH="$PYENV_ROOT/bin:$PATH"
-	eval "$(pyenv init --path)"
-	# eval "$(pyenv init -)"
-	eval "$(pyenv virtualenv-init -)"
-	# source $HOME/.pyenv/plugins/pyenv-autoenv/bin/pyenv-autoenv
-	# source virtualenvwrapper.sh
-else
-	curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
-	pyenv install `pyenv install --list | grep "^ \+[3-9]\.[0-9]\.[0-9]$" | tail -n 1`
-fi
+if [[ -d $HOME/.asdf ]]; then
+	[[ -s "$HOME/.asdf/asdf.sh" ]] && source "$HOME/.asdf/asdf.sh"
 
-if [[ -d $HOME/.rvm ]]; then
-	export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-	[ -s "$HOME/.rvm/scripts/rvm" ] && . "$HOME/.rvm/scripts/rvm"  # This loads rvm
-else
-	curl -sSL https://get.rvm.io | bash -s stable  --ruby
-fi
+	prog_list=('erlang' 'elixir' 'java' 'scala' 'gradle' 'dart' 'flutter' 'nodejs' 'rust' 'ruby' 'python' 'terraform')
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+	for prog in $prog_list; do
+		[[ ! -d "$HOME/.asdf/plugins/$prog" ]] && asdf plugin add $prog 
+		if [[ ! -d "$HOME/.asdf/installs/$prog" ]]; then
+			if [[ $prog == "java" ]]; then
+				asdf install $prog openjdk-19
+				asdf global $prog openjdk-19
+			elif [[ $prog == "python" ]]; then
+				asdf install $prog latest
+				asdf global $prog latest
+			else
+				asdf install $prog latest
+				asdf global $prog latest
+			fi
+
+			if [[ $prog == "dart" ]]; then
+				pub global activate fvm
+			fi
+		fi
+	done
+else
+        git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+fi
 
 if [[ -d $HOME/.dvm ]]; then
 	[[ -s "$HOME/.dvm/scripts/dvm" ]] && source "$HOME/.dvm/scripts/dvm"
@@ -92,50 +97,19 @@ else
 	pub global activate fvm
 fi
 
-if [[ -d $HOME/.sdkman ]]; then
-	[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-else
-	curl -s get.sdkman.io | bash
-	sdk install scala
-	sdk install groovy
-	sdk install grails
-	sdk install gradle
-	sdk install springboot
-fi
-
-if [[ -d $HOME/.tfenv ]]; then
-  [[ -d "$HOME/.tfenv/bin" ]] && export PATH="$HOME/.tfenv/bin:$PATH"
-else
-	git clone https://github.com/tfutils/tfenv.git $HOME/.tfenv
-fi
-
-
 if [[ -d $HOME/.cargo ]]; then
 	[[ -s "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
 else
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
 
-
 [[ -s "$HOME/.shenv" ]] && export SHENV_ROOT="$HOME/.shenv"
 [[ -s "$HOME/.shenv" ]] && export PATH="$SHENV_ROOT/bin:$PATH"
 
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
-
 [[ -s "$HOME/.phpvm/current/default" ]] && export PATH="$PATH:$HOME/.phpvm/current/default/bin"
-
-# PHPVM_BIN="$HOME/bin/phpvm"
-# MY_PHP_VERSION='5.6.27'
-# alias php="$("$PHPVM_BIN" bin "$MY_PHP_VERSION")/php"
-# alias composer="php $("$PHPVM_BIN" bin "$MY_PHP_VERSION")/composer.phar"
-
-# jabba installation
-[[ -s "$HOME/.jabba/jabba.sh" ]] && source "$HOME/.jabba/jabba.sh"
 
 if [ -s "$HOME/Android/Sdk" ]; then
 	export ANDROID_HOME="$HOME/Android/Sdk"
 	export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 fi
 
-
-[[ -s "/home/ygpark2/.gvm/scripts/gvm" ]] && source "/home/ygpark2/.gvm/scripts/gvm"
