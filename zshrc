@@ -32,7 +32,7 @@ ZSH_THEME="agnoster" # "materialshell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(autoenv aws git python scala sbt asdf gcloud golang helm kubectl docker docker-compose flutter web-search ssh-agent composer zsh-autosuggestions zsh-syntax-highlighting zsh-nvm)
+plugins=(aws git python scala sbt asdf gcloud golang helm kubectl docker docker-compose flutter web-search ssh-agent composer zsh-autosuggestions zsh-syntax-highlighting zsh-nvm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -82,6 +82,7 @@ if [[ -d $HOME/.asdf ]]; then
 			fi
 		fi
 	done
+	source $HOME/.asdf/plugins/java/set-java-home.zsh	
 else
         git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 fi
@@ -103,8 +104,16 @@ else
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
 
+if [[ -d $HOME/.rye ]]; then
+	[[ -s "$HOME/.rye/env" ]] && source "$HOME/.rye/env"
+else
+	curl -sSf https://rye.astral.sh/get | bash
+fi
+
+
 [[ -s "$HOME/.shenv" ]] && export SHENV_ROOT="$HOME/.shenv"
 [[ -s "$HOME/.shenv" ]] && export PATH="$SHENV_ROOT/bin:$PATH"
+[[ -s "$HOME/.local/zed.app" ]] && export PATH=$HOME/.local/bin:$PATH
 
 [[ -s "$HOME/.phpvm/current/default" ]] && export PATH="$PATH:$HOME/.phpvm/current/default/bin"
 
@@ -112,4 +121,10 @@ if [ -s "$HOME/Android/Sdk" ]; then
 	export ANDROID_HOME="$HOME/Android/Sdk"
 	export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 fi
+
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/ygpark2/.dart-cli-completion/zsh-config.zsh ]] && . /home/ygpark2/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
 
