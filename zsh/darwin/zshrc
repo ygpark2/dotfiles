@@ -9,15 +9,7 @@ export CPLUS_INCLUDE_PATH=/opt/local/include
 export C_INCLUDE_PATH=/opt/local/include
 # export DYLD_LIBRARY_PATH=/usr/lib:/opt/local/lib
 
-# for app engine development sbp env variables
-export APPENGINE_SDK_HOME=/Volumes/data/progs/appengine-java-sdk-1.6.0
-export JREBEL_JAR_PATH=/Volumes/data/progs/jrebel/jrebel.jar
-
-alias emr='~/Progs/elastic-mapreduce-ruby/elastic-mapreduce'
-alias sts='~/data/progs/springsource/sts-2.6.1.SR1/STS'
-alias xsbt='java -Dfile.encoding=UTF8 -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256m -jar ~/data/progs/sbt-launch.jar'
-
 # for ssh-agent configuration
-zstyle :omz:plugins:ssh-agent agent-forwarding on
-zstyle :omz:plugins:ssh-agent identities ain_rsa young_ige github_rsa
+# zstyle :omz:plugins:ssh-agent agent-forwarding on
+# zstyle :omz:plugins:ssh-agent identities ain_rsa young_ige github_rsa
 

@@ -58,33 +58,25 @@ export WORKON_HOME=$HOME/.virtualenvs
 # Load host specific settings
 [[ -f $HOME/dotfiles/zsh/hosts/$HOST/zshrc ]] && source $HOME/dotfiles/zsh/hosts/$HOST/zshrc
 
-if [[ -d $HOME/.asdf ]]; then
-	[[ -s "$HOME/.asdf/asdf.sh" ]] && source "$HOME/.asdf/asdf.sh"
-
+if command -v asdf 2>&1 >/dev/null
+then
 	prog_list=('erlang' 'elixir' 'java' 'scala' 'gradle' 'dart' 'flutter' 'nodejs' 'rust' 'ruby' 'python' 'terraform')
 
 	for prog in $prog_list; do
-		[[ ! -d "$HOME/.asdf/plugins/$prog" ]] && asdf plugin add $prog 
+		[[ ! -d "$HOME/.asdf/plugins/$prog" ]] && asdf plugin add $prog
 		if [[ ! -d "$HOME/.asdf/installs/$prog" ]]; then
 			if [[ $prog == "java" ]]; then
-				asdf install $prog openjdk-19
-				asdf global $prog openjdk-19
+				asdf install $prog liberica-23+38
+				asdf set $prog liberica-23+38
 			elif [[ $prog == "python" ]]; then
 				asdf install $prog latest
-				asdf global $prog latest
+				asdf set $prog latest
 			else
 				asdf install $prog latest
-				asdf global $prog latest
-			fi
-
-			if [[ $prog == "dart" ]]; then
-				pub global activate fvm
+				asdf set $prog latest
 			fi
 		fi
 	done
-	source $HOME/.asdf/plugins/java/set-java-home.zsh	
-else
-        git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 fi
 
 if [[ -d $HOME/.dvm ]]; then
@@ -127,4 +119,3 @@ fi
 ## Completion scripts setup. Remove the following line to uninstall
 [[ -f /home/ygpark2/.dart-cli-completion/zsh-config.zsh ]] && . /home/ygpark2/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
-

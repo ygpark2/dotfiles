@@ -9,34 +9,6 @@ else
 	touch $HOME/dotfiles/zsh/hosts/$HOST/zshrc
 fi
 
-if [ -d ~/.autoenv ]; then
-	echo "autoenv is already installed!"
-else
-	git clone 'https://github.com/hyperupcall/autoenv' ~/.autoenv	
-fi
-
-if [ -d ~/.tfenv ]; then
-	echo "tfenv is already installed!"
-else
-	git clone --depth=1 https://github.com/tfutils/tfenv.git ~/.tfenv
-fi
-
-if [ -d ~/.asdf ]; then
-	echo "asdf is already installed!"
-else
-	git clone https://github.com/asdf-vm/asdf.git ~/.asdf	
-fi
-
-if [ -d ~/.gvm ]; then
-	echo "go version manager is already installed!"
-else
-	curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer | zsh
-	gvm install go1.4 -B
-	gvm use go1.4
-	export GOROOT_BOOTSTRAP=$GOROOT
-fi
-
-
 if [ -L ~/.oh-my-zsh ]; then
 	echo ".oh-my-zsh symbolic link exist!"
 else
@@ -111,5 +83,3 @@ if [ -L ~/.xsessionrc ]; then
 else
 	ln -s ~/dotfiles/xsessionrc ~/.xsessionrc
 fi
-
-
