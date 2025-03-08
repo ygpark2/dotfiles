@@ -79,29 +79,11 @@ then
 	done
 fi
 
-if [[ -d $HOME/.dvm ]]; then
-	[[ -s "$HOME/.dvm/scripts/dvm" ]] && source "$HOME/.dvm/scripts/dvm"
-	[[ -d "$HOME/.pub-cache/bin" ]] && export PATH="$PATH":"$HOME/.pub-cache/bin"
-else
-	git clone https://github.com/cbracken/dvm.git $HOME/.dvm
-	[[ -s "$HOME/.dvm/scripts/dvm" ]] && source "$HOME/.dvm/scripts/dvm"
-	dvm install `dvm listall | grep "^[2-9]\.[[:digit:]]\.[[:digit:]]$" | tail -1`
-	dvm use `dvm list | grep "^[2-9]\.[[:digit:]]\.[[:digit:]]$" | tail -1`
-	pub global activate fvm
-fi
-
-if [[ -d $HOME/.cargo ]]; then
-	[[ -s "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
-else
-	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-fi
-
 if [[ -d $HOME/.rye ]]; then
 	[[ -s "$HOME/.rye/env" ]] && source "$HOME/.rye/env"
 else
 	curl -sSf https://rye.astral.sh/get | bash
 fi
-
 
 [[ -s "$HOME/.shenv" ]] && export SHENV_ROOT="$HOME/.shenv"
 [[ -s "$HOME/.shenv" ]] && export PATH="$SHENV_ROOT/bin:$PATH"
@@ -114,8 +96,3 @@ if [ -s "$HOME/Android/Sdk" ]; then
 	export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 fi
 
-
-## [Completion]
-## Completion scripts setup. Remove the following line to uninstall
-[[ -f /home/ygpark2/.dart-cli-completion/zsh-config.zsh ]] && . /home/ygpark2/.dart-cli-completion/zsh-config.zsh || true
-## [/Completion]
