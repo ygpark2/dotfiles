@@ -58,6 +58,8 @@ export WORKON_HOME=$HOME/.virtualenvs
 # Load host specific settings
 [[ -f $HOME/dotfiles/zsh/hosts/$HOST/zshrc ]] && source $HOME/dotfiles/zsh/hosts/$HOST/zshrc
 
+[[ -d "$HOME/.asdf" ]] && export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+
 if command -v asdf 2>&1 >/dev/null
 then
 	prog_list=('erlang' 'elixir' 'java' 'scala' 'gradle' 'dart' 'flutter' 'nodejs' 'rust' 'ruby' 'python' 'terraform')
