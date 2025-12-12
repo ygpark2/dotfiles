@@ -13,3 +13,10 @@ export C_INCLUDE_PATH=/opt/local/include
 # zstyle :omz:plugins:ssh-agent agent-forwarding on
 # zstyle :omz:plugins:ssh-agent identities ain_rsa young_ige github_rsa
 
+# pnpm
+export PNPM_HOME="/Users/ygpark2/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
