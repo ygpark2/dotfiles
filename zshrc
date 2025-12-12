@@ -98,3 +98,11 @@ if [ -s "$HOME/Android/Sdk" ]; then
 	export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 fi
 
+
+# pnpm
+export PNPM_HOME="/Users/ygpark2/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

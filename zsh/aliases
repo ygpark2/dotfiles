@@ -3,3 +3,5 @@
 alias android-mount="jmtpfs ~/android"
 alias android-unmount="fusermount -u ~/android"
 
+alias codex='CODEX_HOME="$PWD/.codex" codex'
+
